@@ -125,6 +125,10 @@
       </div>
       <div class="row justify-content-center">
         <div class="col-md-6 ">
+          <div class="alert alert-success alert-dismissible fade show d-none" role="alert" >
+  <strong>Thanks gengs</strong> pesan anda sudah kami terima.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
           <form class="contact-form">
             <div class="mb-3">
               <label for="name" class="form-label">Nama Lengkap</label>
@@ -138,7 +142,11 @@
       <label for="pesan" class="form-label">Pesan</label>
       <textarea class="form-control" id="pesan" rows="3" name="pesan"></textarea>
       </div>
-            <button type="submit" class="btn btn-primary">Kirim</button>
+            <button type="submit" class="btn btn-primary btn-kirim">Kirim</button>
+            <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  Loading...
+</button>
           </form>
         </div>
       </div>
@@ -154,6 +162,8 @@
     <script>
   const scriptURL = '<https://script.google.com/macros/s/AKfycbzjvuGK1JgOeSOLKHykCqean26kEBJUwWKFATgUy3vmJa9MhoaccK2ZtOb6Jh0Vlyt3qA/exec>'
   const form = document.forms['contact-form']
+  const btnKirim = document.quarySelector('.btn-kirim');
+  const btnLoading = document.quarySelector('.btn-kirim');
 
   form.addEventListener('submit', e => {
     e.preventDefault()
